@@ -19,7 +19,7 @@ plt.scatter(df_ok.x, df_ok.y, c='#00cc00')
 plt.scatter(df_ng.x, df_ng.y, c='#cc0000')
 
 plt.grid()
-#plt.show()
+plt.show()
 
 prev = 0
 i = 0
