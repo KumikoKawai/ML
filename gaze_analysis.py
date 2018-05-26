@@ -3,10 +3,13 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import sys
+
+args = sys.argv
 
 #xlsxファイルからデータ読み込み
 #pd.set_option('display.max_rows', 100)
-data = pd.read_excel('/Users/kawaikumiko/Desktop/ML_data/1127gazedata.xlsx', usecols=[0, 6, 7, 10])
+data = pd.read_excel(args[1], usecols=[0, 6, 7, 10])
 data.columns=['num', 'x', 'y', 'dont']
 
 #ok部分とng部分を新しいDataFrameに抽出
