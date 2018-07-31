@@ -17,14 +17,10 @@ args = sys.argv
 df_gaze=pd.read_csv(args[1], header=None)
 #df_gaze=pd.read_csv('/Users/kawaikumiko/Desktop/ML_data/signals.csv', header=None)
 df_gaze.columns = [u'gaze', u'mis']
-#corpus =['O O O O O O O O O A O I O O J J A A J O A J J A J O J J A I C A J O O O O O O O O O O E O O O O O O O O O O O A O O E O B B E O O O O O A I E O']
 
 #vecrorize
 vectorizer = CountVectorizer(ngram_range=(4,4), token_pattern=u'(?u)\\b\\w+\\b', lowercase=False)
 X = vectorizer.fit_transform(df_gaze["gaze"])
-#print(X.toarray())
-
-# 3：プロットしてみる------------------------------------------------------
 z=df_gaze["mis"]
 
 #解説 5：機械学習で分類する---------------------------------------------------
@@ -48,6 +44,7 @@ print("正答率 = ",ac_score)
 print(metrics.confusion_matrix(test_label, pre))
 
 # 8：任意のデータに対する識別結果を見てみる------------------
+#先頭1件を識別
 predicted_label=clf_result.predict(X[1])
 print("このテストデータのラベル = ", predicted_label)
 
