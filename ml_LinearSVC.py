@@ -9,7 +9,6 @@ import sys
 import ssl
 
 from sklearn.feature_extraction.text import CountVectorizer
-import numpy as np
 np.set_printoptions(threshold=np.inf)
 
 #read gaze data file
